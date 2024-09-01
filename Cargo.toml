@@ -4,9 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+log4rs = "1.0"
+log = "0.4"
+
 axum = "0.6"
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-sqlx = { version = "0.6", features = ["postgres", "runtime-tokio-rustls"] }
-dotenvy = "0.15"
+sqlx = { version = "0.6", features = ["postgres", "runtime-tokio-rustls", "json", "time"] }
+time = { version = "0.3", features = ["serde"] }
+dotenv = "0.15"

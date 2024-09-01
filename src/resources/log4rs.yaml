@@ -1,0 +1,31 @@
+appenders:
+  stdout:
+    kind: console
+    encoder:
+      pattern: "{d} {l} {t} {m}{n}"
+  file:
+    kind: file
+    path: "app.log"
+    encoder:
+      pattern: "{d} {l} {t} {m}{n}"
+    policy:
+      kind: compound
+      trigger:
+        kind: size
+        limit: 10mb
+      rollover:
+        kind: delete
+        count: 5
+
+root:
+  level: info
+  appenders:
+    - stdout
+    - file
+
+loggers:
+  paw:
+    level: debug
+    appenders:
+      - file
+      - stdout
